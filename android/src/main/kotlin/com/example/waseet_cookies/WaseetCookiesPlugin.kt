@@ -1,4 +1,4 @@
-package com.waseet.cookies
+package com.waseet.cookies  // ← لازم يطابق المسار و"package" في pubspec
 
 import android.os.Handler
 import android.os.Looper
