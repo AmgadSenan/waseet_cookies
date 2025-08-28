@@ -19,10 +19,7 @@ class WaseetCookiesPlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
     when (call.method) {
       "getCookies" -> {
         val url = call.argument<String>("url")
-        if (url.isNullOrBlank()) {
-          result.error("NO_URL", "الرابط غير صالح", null); return
-        }
-        // ضمان التنفيذ على الـ UI Thread لتفادي أي سلوك غريب مع CookieManager
+        if (url.isNullOrBlank()) { result.error("NO_URL", "الرابط غير صالح", null); return }
         Handler(Looper.getMainLooper()).post {
           val cm = CookieManager.getInstance()
           val raw = cm.getCookie(url)
