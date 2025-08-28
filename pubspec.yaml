@@ -1,6 +1,6 @@
 name: waseet_cookies
 description: Flutter plugin to read/clear Android WebView cookies via MethodChannel.
-version: 0.1.0
+version: 0.1.2
 publish_to: "none"
 
 environment:
@@ -16,7 +16,7 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
-  plugin:
+  plugin:               # ← تحت flutter: وليس في الجذر
     platforms:
       android:
         package: com.waseet.cookies
