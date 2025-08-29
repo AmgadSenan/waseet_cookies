@@ -1,5 +1,5 @@
 group "com.waseet.cookies"
-version "0.1.11" // للمرجعة فقط، لا يؤثر على Flutter
+version "0.1.13"
 
 apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
@@ -7,27 +7,29 @@ apply plugin: "kotlin-android"
 android {
     namespace "com.waseet.cookies"
 
-    // استخدم نفس compileSdk للمشروع الأساسي لضمان التوافق
-    compileSdkVersion 34
+    // طابق إعداد التطبيق الرئيسي
+    compileSdkVersion 35
 
     defaultConfig {
         minSdkVersion 21
     }
 
-    // مصادر كوتلن
     sourceSets {
         main.java.srcDirs += "src/main/kotlin"
     }
 
-    // اجعلها على Java 17 (الأكثر توافقًا مع AGP 8+)
+    // اطابق Java/Kotlin مع التطبيق (1.8)
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "1.8"
     }
 }
 
-// لا نحدد هنا AGP ولا kotlin-gradle-plugin ولا مستودعات.
-// نعتمد على إعدادات المشروع الأساسي (Flutter app) لتفادي أي تضارب.
+// لا تعرّف هنا إصدارات AGP/Kotlin ولا repositories — دعها من المشروع الرئيسي
+dependencies {
+    // (اختياري للاختبارات فقط)
+    testImplementation "org.jetbrains.kotlin:kotlin-test"
+}
